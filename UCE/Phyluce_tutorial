@@ -75,7 +75,13 @@ samtools view -bS $file-to-base.sam > $file-to-base.bam; done
 ### Remove the repetitives regions by phyluce
 (bedtools) $ micromamba activate phyluce
 (phyluce) $ phyluce --help
-(phyluce) $ for file in *.merge.bed ; do phyluce_probe_strip_masked_loci_from_set --bed $file --twobit ~/genomes/base/*.2bit --output ${file%.merge.bed}.strip.bed --filter-mask 0.25 --min-lenght 80 ; done
+(phyluce) $ for file in *.merge.bed ; do phyluce_probe_strip_masked_loci_from_set --bed $file --twobit ~/genomes/base/*.2bit --output ${file%.merge.bed}.strip.bed --filter-mask 0.25 --min-lenght 120 ; done
+# filter-mask = Frequency refers to the percentage or fraction of the sequence that consists of these masked bases (25%) 
+
+# removing DNA sequences from your dataset if they contain too many lowercase letters (a, c, g, t) or N's = keeps only functional loci 
+# before that step check the lower case in the fasta genome base
+(phyluce) $ grep --no-ignore-case -c -m -1 -e 'a' -e 'c' -e 't' -e 'g' ~/genomes/base/*.fasta
+# uses the coordinates from the BED file to find those elements
 
 ### Check the result and count how much numbers of sequence has each file
 (phyluce) $ wc -l *.strip.bed *.merge.bed
