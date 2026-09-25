@@ -1,9 +1,0 @@
-#!/bin/bash
-
-for file in SFTPD_Actino_Neotele_Perco* ; do sed 's/Perco_//g' $file > removed_$file ; done
-
-for file in SFTPD_Sarco_Reptilia_Passeri*; do sed 's/Passeri_//g' $file > removed_$file ; done
-
-for file in SFTPD_Sarco_Reptilia_Lepdo*; do sed 's/Lepdo_//g' $file > removed_$file ; done
-
-for file in SFTPD_Sarco_Reptilia_Archo*; do sed 's/Archo_//g' $file > removed_$file ; done
