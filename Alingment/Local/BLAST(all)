@@ -2,10 +2,8 @@ BLAST = Base L Aligment S T
 blast -query <
 
 
-
-
 (base) $ cd ~/Ostei/cds.fna/Single_line 
-### Activate in my case
+### Activate in module
 (base) $ module load Bio/BLAST+/2.15.0 
 
 ### Start constructing the own DataBase
@@ -22,3 +20,5 @@ blast -query <
          done
 ### Check the list and count how much lines there is each file
 (base) $ wc -l gene_*
+
+### Download
