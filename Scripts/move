@@ -1,0 +1,22 @@
+#!/bin/bash
+
+mv *A.* -t ~/Ostei/cds.fna/Single_line/final/A;
+mv *B.* -t ~/Ostei/cds.fna/Single_line/final/B;
+mv *C.* -t ~/Ostei/cds.fna/Single_line/final/C;
+mv *D.* -t ~/Ostei/cds.fna/Single_line/final/D;
+mv *E.* -t ~/Ostei/cds.fna/Single_line/final/E;
+mv *F.* -t ~/Ostei/cds.fna/Single_line/final/F;
+mv *G.* -t ~/Ostei/cds.fna/Single_line/final/G;
+mv *H.* -t ~/Ostei/cds.fna/Single_line/final/H;
+mv *L.* -t ~/Ostei/cds.fna/Single_line/final/L;
+mv *M.* -t ~/Ostei/cds.fna/Single_line/final/M;
+mv *N.* -t ~/Ostei/cds.fna/Single_line/final/N;
+mv *O.* -t ~/Ostei/cds.fna/Single_line/final/O;
+mv *P.* -t ~/Ostei/cds.fna/Single_line/final/P;
+mv *K.* -t ~/Ostei/cds.fna/Single_line/final/K;
+mv *R.* -t ~/Ostei/cds.fna/Single_line/final/R;
+mv *S.* -t ~/Ostei/cds.fna/Single_line/final/S;
+mv *T.* -t ~/Ostei/cds.fna/Single_line/final/T;
+mv *Z.* -t ~/Ostei/cds.fna/Single_line/final/Z;
+mv *V.* -t ~/Ostei/cds.fna/Single_line/final/V;
+mv *X.* -t ~/Ostei/cds.fna/Single_line/final/X;

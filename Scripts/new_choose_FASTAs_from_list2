@@ -1,0 +1,39 @@
+#!/bin/bash
+### cant use ">" in the list of genes names
+### pick the sequence under the gene name until the next gene name
+### >gene_name
+### ..... sequence picked ....
+### >next_gene_name
+
+perl -e '
+($id,$fasta)=@ARGV;
+open(ID,$id);
+while (<ID>) {
+    s/\r?\n//;
+    /^>?(\S+)/;
+    $ids{$1}++;
+}
+$num_ids = keys %ids;
+open(F, $fasta);
+$s_read = $s_wrote = $print_it = 0;
+while (<F>) {
+    if (/^>(\S+)/) {
+        $s_read++;
+        if ($ids{$1}) {
+            $s_wrote++;
+            $print_it = 1;
+            delete $ids{$1}
+        }
+        else {
+            $print_it = 0
+        }
+
+    };
+    if ($print_it) {
+        print $_
+    }
+};
+END {
+    warn "Searched $s_read FASTA records.\nFound $s_wrote IDs out of $num_ids in the ID list.\n"
+}
+' Muc2_line_Sarco.txt new_Ortho_Muc5_Sarco_all.fasta > Muc2_Sarco_all.fasta

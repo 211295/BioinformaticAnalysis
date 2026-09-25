@@ -1,0 +1,10 @@
+#!/bin/bash
+########################## use this script to change multiples lines in FASTA file to just ONE LINE ##########################
+#### >name_of_(1,2,3) | 1) gene ; 2) scaffold; 3) cromossomo ---> >name_of_(1,2,3) | 1) gene ; 2) scaffold; 3) cromossomo ####
+####  ATGGGACTAATC					     ---> ATGGGACTAATCTTGAGCGGGCCAGACTTTGAG*TAG  #####################
+####  TTGAGCGGGCCA                                                                                       #####################
+####  GACTTTGAG*TAG                                                                                      #####################
+
+for file in [AS]*.fna;
+do awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' < $file > single_line_$file;
+done

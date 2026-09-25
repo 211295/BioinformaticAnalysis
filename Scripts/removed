@@ -1,0 +1,20 @@
+#!/bin/bash
+
+for file in SFTPD_Actino_Acipen_* ; do sed 's/Actino_Acipen_//g' $file > removed_$file ; done
+for file in SFTPD_Actino_Elopo_* ; do sed 's/Actino_Elopo_//g' $file > removed_$file ; done
+for file in SFTPD_Actino_Eupercaria_* ; do sed 's/Actino_Eupercaria_//g' $file > removed_$file ; done
+for file in SFTPD_Actino_Holostei_* ; do sed 's/Actino_Holostei_//g' $file > removed_$file ; done
+for file in SFTPD_Actino_Neotele_Perco_* ; do sed 's/Actino_Neotele_Perco_//g' $file > removed_$file ; done
+for file in SFTPD_Actino_Osteoglo_* ; do sed 's/Actino_Osteoglo_//g' $file > removed_$file ; done
+for file in SFTPD_Actino_Poly_* ; do sed 's/Actino_Poly_//g' $file > removed_$file ; done
+for file in SFTPD_Actino_Tele_Oto_* ; do sed 's/Actino_Tele_Oto_//g' $file > removed_$file ; done
+for file in SFTPD_Actino_Tele_Prota_* ; do sed 's/Actino_Tele_Prota_//g' $file > removed_$file ; done
+for file in SFTPD_Actino_Tele_Sto_* ; do sed 's/Actino_Tele_Sto_//g' $file > removed_$file ; done
+for file in SFTPD_Sarco_Amphi_* ; do sed 's/Sarco_Amphi_//g' $file > removed_$file ; done
+for file in SFTPD_Sarco_Mammals_* ; do sed 's/Sarco_Mammals_//g' $file > removed_$file ; done
+for file in SFTPD_Sarco_Reptilia_Archo_* ; do sed 's/Sarco_Reptilia_Archo_//g' $file > removed_$file ; done
+for file in SFTPD_Sarco_Reptilia_Lepdo_* ; do sed 's/Sarco_Reptilia_Lepdo_//g' $file > removed_$file ; done
+for file in SFTPD_Sarco_Reptilia_Passeri_*; do sed 's/Sarco_Reptilia_Passeri_//g' $file > removed_$file ; done
+sed 's/Sarco_Coelacanth_//g' SFTPD_Sarco_Coelacanth_L.chalumnae > removed_SFTPD_Sarco_Coelacanth_L.chalumnae
+sed 's/Sarco_Dipnoi_//g' SFTPD_Sarco_Dipnoi_P.annectens > removed_SFTPD_Sarco_Dipnoi_P.annectens
+sed 's/Sarco_Reptilia_Croco_//g' SFTPD_Sarco_Reptilia_Croco_A.mississipiensis > removed_SFTPD_Sarco_Reptilia_Croco_A.mississipiensis

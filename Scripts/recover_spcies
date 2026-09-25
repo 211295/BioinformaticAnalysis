@@ -1,0 +1,30 @@
+#!/bin/bash
+### I used to get a sorted list of fasta files combinated with the list the abreviation of those fasta files
+### So its usefull to recover the original name: files.fasta -> transformed in abreviations -> pick the name of original file and match in list line
+
+
+# Define the input file containing patterns to grep
+input_file="OGs_MUC5_2.0.txt"
+
+# Ensure that muc1_OG1.txt exists
+if [[ ! -f "$input_file" ]]; then
+    echo "Error: $input_file file not found!"
+    exit 1
+fi
+
+# Create an output file to store the grep results
+output_file="grep_results.txt"
+> "$output_file"  # Clear the output file if it exists
+
+# Read each line from muc1_OG1.txt and search in FASTA files
+while IFS= read -r pattern; do
+    echo "Searching for pattern: $pattern"
+
+    # Grep the pattern in each FASTA file
+    for file in Muc5_[AS]*; do
+        grep -H "$pattern" "$file" >> "$output_file"
+    done
+done < "$input_file"
+
+# Inform the user that the grep is done
+echo "Grep completed. Results stored in $output_file."

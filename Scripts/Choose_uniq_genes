@@ -1,0 +1,16 @@
+#!/bin/bash
+
+for file in [AS]*;
+do
+cut -f 1 $file | perl -e '
+$unique=0;
+while(<>) {
+    if (!($save{$_}++)) {
+	print $_;
+	$unique++
+    }
+}
+warn "\nChose $unique unique lines out of $. total lines.\n\n"
+'   > Genes_of_$file;
+done
+rename 's/_blast//' Genes_of_*

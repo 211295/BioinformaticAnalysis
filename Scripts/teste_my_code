@@ -1,0 +1,13 @@
+#!/bin/bash
+### lest try to concatenate a big command to keep in header of fasta file just the lcl|XP______ = 'reference of protein'
+### I used to rewrite the header of each gene in fasta file, so substitute the dot by column bar, and use to delimitate by awk command and print new delimiters
+### substitute the 1st to 14th space and '_cds_' pattern to blank space, and finish doing the same to '_....' parts.
+for file in substitute_* ;
+do
+	sed "s/\./|/g" $file |
+	awk -F "|" '{print $1 "|" $3 "." $4}' |
+	sed "s/[123456789 $11 $12 $13 $14]_cds_//" |
+	sed "s/_.$//" | sed "s/_..$//" | sed "s/_...$//" | sed "s/_....$//" | sed "s/_.....$//" | sed "s/_......$//" > OrthoMCL_$file;
+done
+
+rename 's/_substitute_/_/' OrthoMCL_*

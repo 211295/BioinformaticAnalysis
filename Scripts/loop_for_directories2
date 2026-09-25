@@ -1,0 +1,11 @@
+#!/bin/bash
+
+## 
+
+for dir in [MS]*[AS]*/; do
+  for file in "$dir"*.txt; do
+    if [ -f "$file" ]; then
+      sed 's/\t/\n/g' "$file" > "${file%/*}/new_${file##*/}"
+    fi
+  done
+done
